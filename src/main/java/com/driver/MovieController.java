@@ -3,7 +3,7 @@ package com.driver;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
+import java.util.List;
 
 @RestController
 @RequestMapping("/movies")
@@ -38,12 +38,12 @@ public class MovieController {
     }
 
     @GetMapping("/get-movies-by-director-name/{director}")
-    public ResponseEntity<Map<String, Movie>> getMoviesByDirectorName(@PathVariable String director) {
+    public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable String director) {
         return movieService.getMoviesByDirectorName(director);
     }
 
     @GetMapping("/get-all-movies")
-    public ResponseEntity<Map<String, Movie>> findAllMovies() {
+    public ResponseEntity<List<String>> findAllMovies() {
         return movieService.findAllMovies();
     }
 
